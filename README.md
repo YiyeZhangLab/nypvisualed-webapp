@@ -1,5 +1,6 @@
 # new-clip
 
+
 ## Project setup
 
 ```

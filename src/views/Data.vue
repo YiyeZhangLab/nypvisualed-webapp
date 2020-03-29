@@ -1,6 +1,10 @@
 <template>
   <div>
-    <h1>Data here</h1>
+    <h1>
+      Data here
+      <b-badge>bla</b-badge>
+    </h1>
+    <b-table striped hover :items="results.results_list"></b-table>
   </div>
 </template>
 
@@ -30,7 +34,6 @@ export default {
 
     DataService.getResults(formData)
       .then(response => {
-        console.log(response);
         this.results = response.data;
       })
       .catch(error => {

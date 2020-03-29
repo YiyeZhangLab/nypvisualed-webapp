@@ -19,5 +19,9 @@ export default {
   },
   getResults(params) {
     return apiClient.post('/api/result', params);
+  },
+
+  getGraph() {
+    return apiClient.get('/res');
   }
 };

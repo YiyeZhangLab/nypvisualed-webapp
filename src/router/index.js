@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Data from '../views/Data.vue';
 import Graph from '../views/Graph.vue';
 import About from '../views/About.vue';
+import GraphNative from '../views/GraphNative.vue';
 
 Vue.use(VueRouter);
 
@@ -26,8 +27,12 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-
     component: About
+  },
+  {
+    path: '/graph-native',
+    name: 'graph-native',
+    component: GraphNative
   }
 ];
 

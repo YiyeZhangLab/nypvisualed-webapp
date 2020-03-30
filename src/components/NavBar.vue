@@ -2,10 +2,10 @@
   <div id="nav" class="nav">
     <router-link to="/" class="brand">CLIP</router-link>
     <nav>
-      <router-link :to="{ name: 'view-data' }">Data</router-link>|
+      <!-- <router-link :to="{ name: 'view-data' }">Data</router-link>|
       <router-link :to="{ name: 'graph' }">Graph</router-link>|
-      <router-link :to="{ name: 'about' }">About</router-link>|
-      <router-link :to="{ name: 'graph-native' }">Graph Native</router-link>
+      <router-link :to="{ name: 'graph-native' }">Graph Native</router-link>-->
+      <!-- <router-link :to="{ name: 'about' }">About</router-link> -->
     </nav>
   </div>
 </template>

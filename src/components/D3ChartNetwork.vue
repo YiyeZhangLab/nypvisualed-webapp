@@ -3,23 +3,40 @@
     <div class="controls">
       <h1>Control here</h1>
       <div>
-        <label> Force </label>
-        <input type="range" min="-2000" max="0" v-model="force" />
-        {{ options.force }}
+        <div id="example-1">
+          <button v-on:click="initialize">Initialize</button>
+        </div>
       </div>
       <div>
-        <label> Edge width </label>
-        <input type="range" min="0" max="10" v-model="linkWidth" />
-        {{ options.linkWidth }}
+        <label> Node Size </label>
+        <input
+          type="range"
+          min="2"
+          max="50"
+          v-model="nodeSize"
+          v-on:change="updateControl()"
+        />
+        {{ nodeSize }}
       </div>
       <div>
         <label>Node Label: </label>
-        <input type="radio" :value="false" v-model="displayNodeLabels" />
+        <input
+          type="radio"
+          :value="false"
+          v-model="displayNodeLabels"
+          v-on:change="updateControl()"
+        />
         <label>Hide</label>
-        <input type="radio" :value="true" v-model="displayNodeLabels" />
+        <input
+          type="radio"
+          :value="true"
+          v-model="displayNodeLabels"
+          v-on:change="updateControl()"
+        />
         <label>Show</label>
       </div>
     </div>
+
     <svg></svg>
   </div>
 </template>
@@ -32,6 +49,7 @@ export default {
   name: 'D3ChartNetwork',
   data() {
     return {
+      counter: 1,
       nodes: Object,
       links: Object,
       width: 1,
@@ -40,16 +58,16 @@ export default {
       simulation: Object,
 
       displayNodeLabels: true,
-      force: -1000,
-      linkWidth: 1
+      force: -4000,
+      linkWidth: 1,
+      nodeSize: 5
     };
   },
   computed: {
     options() {
       return {
         force: this.force,
-
-        nodeSize: 20,
+        nodeSize: this.nodeSize,
         nodeLabels: this.displayNodeLabels,
         linkLabels: true,
         linkWidth: this.linkWidth
@@ -57,8 +75,8 @@ export default {
     }
   },
   mounted() {
-    this.width = window.innerWidth;
-    this.height = window.innerHeight;
+    this.width = 1200;
+    this.height = 1200;
     this.svg = d3
       .select('svg')
       .attr('width', this.width)
@@ -69,12 +87,33 @@ export default {
     res.then(response => {
       this.nodes = response.data.nodes;
       this.links = response.data.links;
+      this.positions = response.data.positions;
+      for (let [, v] of Object.entries(this.nodes)) {
+        v.fx = this.positions[v.details].x;
+        v.fy = this.positions[v.details].y;
+      }
       // console.log(this.nodes);
       // console.log(this.links);
       this.initialize();
     });
   },
   methods: {
+    warn(message, event) {
+      // now we have access to the native event
+      if (event) {
+        event.preventDefault();
+      }
+      alert(message);
+      alert(event);
+    },
+    updateControl() {
+      d3.selectAll('circle').attr('r', this.nodeSize);
+      d3.selectAll('text').style(
+        'display',
+        this.displayNodeLabels ? 'block' : 'none'
+      );
+      console.log(this.displayNodeLabels);
+    },
     initialize() {
       const nodeGroupElements = this.svg
         .append('g')
@@ -86,7 +125,8 @@ export default {
 
       const nodeCircleElemtns = nodeGroupElements
         .append('circle')
-        .attr('r', 20)
+        .attr('r', this.options.nodeSize)
+        .attr('x', d => d.x)
         .call(d3.drag().on('drag', dragged));
 
       const nodeTextElemtns = nodeGroupElements
@@ -94,7 +134,7 @@ export default {
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central')
         .attr('pointer-events', 'none')
-        .text(d => d.name);
+        .text(d => d.details);
 
       const linkElements = this.svg
         .append('g')
@@ -104,8 +144,6 @@ export default {
         .append('line')
         .attr('stroke-width', 1)
         .attr('stroke', '#aaa');
-      console.log(nodeCircleElemtns.nodes()[0]);
-      console.log(nodeCircleElemtns.nodes()[0].cx);
 
       this.simulation = d3
         .forceSimulation(this.nodes)
@@ -166,21 +204,22 @@ export default {
 
 <style>
 svg {
-  margin: 25px;
-}
-path {
-  fill: none;
-  stroke: red;
-  stroke-width: 3px;
-}
-.node > text {
-  stroke: #333;
+  margin: 5px;
+  border: 1px solid green;
 }
 
 .node > circle {
-  stroke: #555;
-  stroke-width: 3px;
-  fill: white;
+  stroke: red;
+  stroke-width: 1px;
+  fill: rgb(207, 207, 207);
   cursor: pointer;
+}
+.node > text {
+  fill: blue;
+  stroke-width: 1px;
+  font: 10px serif;
+}
+
+.node {
 }
 </style>

@@ -11,7 +11,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    name: 'home',
+    redirect: { name: 'yiye' }
+  },
+  {
+    path: '/yiye',
+    name: 'yiye',
     component: Home
   },
   {
@@ -33,10 +37,15 @@ const routes = [
     path: '/graph-native',
     name: 'graph-native',
     component: GraphNative
+  },
+  {
+    path: '*',
+    redirect: { name: 'yiye' }
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 

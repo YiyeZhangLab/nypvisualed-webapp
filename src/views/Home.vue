@@ -16,7 +16,7 @@
         <iframe
           id="frameToPrint"
           src="http://yiyeserver.duckdns.org/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2020-03-01T17%3A50%3A00.000Z'%2Cto%3Anow))"
-          height="3000"
+          height="6000"
           allowfullscreen
         ></iframe>
       </b-col>
@@ -28,13 +28,7 @@
 export default {
   name: 'Home',
   components: {},
-  created() {
-    setInterval(function() {
-      document.getElementById('frameToPrint').style.height =
-        document.getElementById('frameToPrint').contentWindow.document.documentElement
-          .scrollHeight + 'px';
-    }, 8000);
-  },
+  created() {},
   methods: {
     printPDF() {
       var frame = document.getElementById('frameToPrint');
@@ -52,7 +46,6 @@ export default {
 
 .iframe-container iframe {
   border: 0;
-  height: 100%;
   left: 0;
   position: absolute;
   top: 0;

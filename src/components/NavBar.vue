@@ -5,7 +5,7 @@
       <!-- <router-link :to="{ name: 'view-data' }">Data</router-link>|
       <router-link :to="{ name: 'graph' }">Graph</router-link>|
       <router-link :to="{ name: 'graph-native' }">Graph Native</router-link>-->
-      <router-link :to="{ name: 'about' }">About</router-link>
+      <!-- <router-link :to="{ name: 'about' }">About</router-link> -->
     </nav>
   </div>
 </template>
@@ -19,12 +19,12 @@ export default {};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 100px;
 }
 .nav > .brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 1.5em;
+  font-size: 3em;
   color: #39b982;
   text-decoration: none;
 }

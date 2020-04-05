@@ -1,13 +1,20 @@
 <template>
-  <div id="nav" class="nav">
-    <router-link to="/" class="brand">CLIP</router-link>
-    <nav>
-      <!-- <router-link :to="{ name: 'view-data' }">Data</router-link>|
-      <router-link :to="{ name: 'graph' }">Graph</router-link>|
-      <router-link :to="{ name: 'graph-native' }">Graph Native</router-link>-->
-      <!-- <router-link :to="{ name: 'about' }">About</router-link> -->
-    </nav>
-  </div>
+  <b-navbar variant="light">
+    <b-navbar-brand>
+      <router-link to="/" class="brand">CLIP</router-link>
+    </b-navbar-brand>
+
+    <b-collapse id="nav-collapse" is-nav>
+      <b-navbar-nav>
+        <b-nav-item>
+          <router-link :to="{ name: 'yiye' }">Covid Dashboard</router-link>
+        </b-nav-item>
+        <b-nav-item>
+          <router-link :to="{ name: 'about' }">About</router-link>
+        </b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
@@ -15,27 +22,11 @@ export default {};
 </script>
 
 <style scoped>
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-}
-.nav > .brand {
+.brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 3em;
+  font-size: 2em;
   color: #39b982;
   text-decoration: none;
-}
-.nav .nav-item {
-  box-sizing: border-box;
-  margin: 0 5px;
-  color: rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
-.nav .nav-item.router-link-exact-active {
-  color: #39b982;
-  border-bottom: solid 2px #39b982;
 }
 </style>

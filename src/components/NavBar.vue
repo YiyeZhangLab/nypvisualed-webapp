@@ -1,16 +1,16 @@
 <template>
-  <b-navbar variant="light">
+  <b-navbar>
     <b-navbar-brand>
-      <router-link to="/" class="brand">CLIP</router-link>
+      <router-link to="/" class="brand">VISUAL(ED)</router-link>
     </b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item>
-          <router-link :to="{ name: 'yiye' }">Covid Dashboard</router-link>
+          <router-link :to="{ name: 'yiye' }" class="brand1">COVID Dashboard</router-link>
         </b-nav-item>
         <b-nav-item>
-          <router-link :to="{ name: 'about' }">About</router-link>
+          <router-link :to="{ name: 'about' }" class="brand1">About</router-link>
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -23,10 +23,11 @@ export default {};
 
 <style scoped>
 .brand {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 2em;
-  color: #39b982;
-  text-decoration: none;
+  font: normal normal normal 40px/1.35em raleway, sans-serif;
+  color: black;
+}
+.brand1 {
+  font: normal normal normal 20px/1.35em raleway, sans-serif;
+  color: black;
 }
 </style>

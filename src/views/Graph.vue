@@ -34,8 +34,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
 import DataService from '@/services/DataService.js';
 
 import D3Network from 'vue-d3-network';
@@ -68,17 +66,14 @@ export default {
     res.then(response => {
       this.nodes = response.data.nodes;
       this.links = response.data.links;
-      console.log(this.nodes);
-      console.log(this.links);
     });
   },
   methods: {
     nodeClick(event, node) {
-      console.log(node);
       node._cssClass = '';
     }
   }
 };
 </script>
 
-<style src="vue-d3-network/dist/vue-d3-network.css"></style>
+<style scoped src="vue-d3-network/dist/vue-d3-network.css"></style>

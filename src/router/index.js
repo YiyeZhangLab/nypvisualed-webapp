@@ -17,7 +17,10 @@ const routes = [
   {
     path: '/yiye',
     name: 'yiye',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Visual(ED) - Dashboard'
+    }
   },
   {
     path: '/yiye/queens',
@@ -37,7 +40,10 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: About
+    component: About,
+    meta: {
+      title: 'Visual(ED) - About'
+    }
   },
   {
     path: '/graph-native',
@@ -46,7 +52,7 @@ const routes = [
   },
   {
     path: '*',
-    redirect: { name: 'yiye' }
+    redirect: { name: 'about' }
   }
 ];
 

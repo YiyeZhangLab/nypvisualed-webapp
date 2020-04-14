@@ -36,9 +36,7 @@ export default {
       .then(response => {
         this.results = response.data;
       })
-      .catch(error => {
-        console.log("there's an error: " + error.message);
-      });
+      .catch(error => {});
   }
 };
 </script>

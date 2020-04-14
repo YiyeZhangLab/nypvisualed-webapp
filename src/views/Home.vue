@@ -1,9 +1,8 @@
 <template>
   <div>
     <b-row>
-      <b-col>
-        <h1>VISUAL(ED)</h1>
-      </b-col>
+      <b-col></b-col>
+
       <b-col>
         <div class="float-right">
           Daily Trends Since March 1st, 2020
@@ -11,13 +10,17 @@
         </div>
       </b-col>
     </b-row>
-    <b-row class="border border-primary">
+    <b-row id="loading" class="justify-content-center">
+      <Loading class="text-center" />
+    </b-row>
+    <b-row id="dashboard">
       <b-col class="iframe-container">
         <iframe
           id="frameToPrint"
-          src="http://yiyeserver.duckdns.org/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2020-03-01T17%3A50%3A00.000Z'%2Cto%3Anow))"
+          src="/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2020-03-01T17%3A50%3A00.000Z'%2Cto%3Anow))"
           height="6000"
           allowfullscreen
+          class="border border-dark"
         ></iframe>
       </b-col>
     </b-row>
@@ -25,9 +28,17 @@
 </template>
 
 <script>
+import Loading from '@/components/Loading.vue';
 export default {
   name: 'Home',
-  components: {},
+  components: { Loading },
+  mounted() {
+    document.getElementById('dashboard').style.display = 'none';
+    setInterval(function() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    }, 5000);
+  },
   created() {},
   methods: {
     printPDF() {
@@ -40,14 +51,13 @@ export default {
 </script>
 <style scoped>
 .iframe-container {
-  padding-top: 56.25%;
+  padding-top: 20;
   position: relative;
 }
 
 .iframe-container iframe {
-  border: 0;
   left: 0;
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
 }

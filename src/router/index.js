@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import Queens from '../views/Queens.vue';
 import Data from '../views/Data.vue';
 import Graph from '../views/Graph.vue';
 import About from '../views/About.vue';
@@ -17,6 +18,11 @@ const routes = [
     path: '/yiye',
     name: 'yiye',
     component: Home
+  },
+  {
+    path: '/yiye/queens',
+    name: 'queens',
+    component: Queens
   },
   {
     path: '/data',

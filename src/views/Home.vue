@@ -2,7 +2,6 @@
   <div>
     <b-row>
       <b-col></b-col>
-
       <b-col>
         <div class="float-right">
           Daily Trends Since March 1st, 2020

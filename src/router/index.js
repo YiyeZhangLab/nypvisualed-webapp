@@ -46,7 +46,7 @@ const routes = [
   },
   {
     path: '*',
-    redirect: { name: 'yiye' }
+    redirect: { name: 'about' }
   }
 ];
 

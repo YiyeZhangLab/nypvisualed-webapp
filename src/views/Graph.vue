@@ -66,13 +66,10 @@ export default {
     res.then(response => {
       this.nodes = response.data.nodes;
       this.links = response.data.links;
-      console.log(this.nodes);
-      console.log(this.links);
     });
   },
   methods: {
     nodeClick(event, node) {
-      console.log(node);
       node._cssClass = '';
     }
   }

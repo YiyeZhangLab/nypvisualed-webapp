@@ -16,7 +16,10 @@ const routes = [
   {
     path: '/yiye',
     name: 'yiye',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Visual(ED) - Dashboard'
+    }
   },
   {
     path: '/data',
@@ -31,7 +34,10 @@ const routes = [
   {
     path: '/about',
     name: 'about',
-    component: About
+    component: About,
+    meta: {
+      title: 'Visual(ED) - About'
+    }
   },
   {
     path: '/graph-native',

@@ -214,8 +214,7 @@ export default {
         .force('center', d3.forceCenter(this.width / 2, this.height / 2))
         .on('tick', ticked);
       // .velocityDecay(0.4);
-      console.log('1');
-      console.log(this.simulation);
+
       function linkArc(d) {
         var dx = d.target.x - d.source.x,
           dy = d.target.y - d.source.y,
@@ -256,8 +255,6 @@ export default {
       }
       var sim = this.simulation;
       function dragged(d) {
-        console.log(sim);
-        console.log(d);
         if (!d3.event.active) sim.alphaTarget(0.3).restart();
         (d.fx = d.x), (d.fy = d.y);
 
@@ -303,9 +300,6 @@ svg {
   fill: blue;
   stroke-width: 1px;
   font: 10px serif;
-}
-
-.node {
 }
 .link {
   fill: none;

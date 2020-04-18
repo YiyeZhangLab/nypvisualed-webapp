@@ -5,7 +5,7 @@
 
       <b-col>
         <div class="float-right">
-          Daily Trends Since March 1st, 2020
+          Visualizing Last 30-day Trend
           <b-button variant="outline-primary" v-on:click="printPDF">Print Report</b-button>
         </div>
       </b-col>
@@ -17,7 +17,7 @@
       <b-col class="iframe-container">
         <iframe
           id="frameToPrint"
-          src="/k/app/kibana#/dashboard/1c73f1c0-7db3-11ea-89f3-434a552848e1?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3A'2020-03-02T00%3A51%3A02.329Z'%2Cto%3Anow))"
+          src="/k/app/kibana#/dashboard/1c73f1c0-7db3-11ea-89f3-434a552848e1?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
           height="3000"
           allowfullscreen
           class="border border-dark"

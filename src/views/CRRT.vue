@@ -4,7 +4,6 @@
       <b-col></b-col>
       <b-col>
         <div class="float-right">
-          Daily Trends Since March 1st, 2020
           <b-button variant="outline-primary" v-on:click="printPDF">Print Report</b-button>
         </div>
       </b-col>

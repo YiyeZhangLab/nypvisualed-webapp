@@ -16,7 +16,7 @@
       <b-col class="iframe-container">
         <iframe
           id="frameToPrint"
-          src="/k/app/kibana#/dashboard/9acf18a0-834f-11ea-89f3-434a552848e1?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
+          src="/k/app/kibana#/dashboard/9acf18a0-834f-11ea-89f3-434a552848e1?embed=true&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
           height="6000"
           allowfullscreen
           class="border border-dark"

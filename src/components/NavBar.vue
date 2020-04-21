@@ -9,9 +9,9 @@
         <b-nav-item>
           <router-link :to="{ name: 'yiye' }" class="brand1">COVID Dashboard</router-link>
         </b-nav-item>
-        <b-nav-item>
+        <!-- <b-nav-item>
           <router-link :to="{ name: 'about' }" class="brand1">About</router-link>
-        </b-nav-item>
+        </b-nav-item> -->
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

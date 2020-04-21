@@ -6,7 +6,7 @@ import Data from '../views/Data.vue';
 import Graph from '../views/Graph.vue';
 import About from '../views/About.vue';
 import GraphNative from '../views/GraphNative.vue';
-import CRRT from "../views/CRRT.vue";
+import CRRT from '../views/CRRT.vue';
 
 Vue.use(VueRouter);
 

@@ -2,10 +2,9 @@
   <div>
     <b-row>
       <b-col></b-col>
-
       <b-col>
         <div class="float-right">
-          Trend in the Last 30 Days
+          Daily Trends Since March 1st, 2020
           <b-button variant="outline-primary" v-on:click="printPDF">Print Report</b-button>
         </div>
       </b-col>
@@ -17,8 +16,8 @@
       <b-col class="iframe-container">
         <iframe
           id="frameToPrint"
-          src="/k/app/kibana#/dashboard/1c73f1c0-7db3-11ea-89f3-434a552848e1?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
-          height="3000"
+          src="/k/app/kibana#/dashboard/9acf18a0-834f-11ea-89f3-434a552848e1?_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
+          height="6000"
           allowfullscreen
           class="border border-dark"
         ></iframe>
@@ -30,7 +29,7 @@
 <script>
 import Loading from '@/components/Loading.vue';
 export default {
-  name: 'Queens',
+  name: 'CRRT',
   components: { Loading },
   mounted() {
     document.getElementById('dashboard').style.display = 'none';

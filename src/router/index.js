@@ -6,6 +6,7 @@ import Data from '../views/Data.vue';
 import Graph from '../views/Graph.vue';
 import About from '../views/About.vue';
 import GraphNative from '../views/GraphNative.vue';
+import CRRT from "../views/CRRT.vue";
 
 Vue.use(VueRouter);
 
@@ -49,6 +50,11 @@ const routes = [
     path: '/graph-native',
     name: 'graph-native',
     component: GraphNative
+  },
+  {
+    path: '/crrt',
+    name: 'crrt',
+    component: CRRT
   },
   {
     path: '*',

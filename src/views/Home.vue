@@ -4,7 +4,7 @@
       <b-col></b-col>
       <b-col>
         <div class="float-right">
-          Trend in the Last 30 Days
+          Trend in the Last 90 Days
           <b-button variant="outline-primary" v-on:click="printPDF">Print Report</b-button>
         </div>
       </b-col>
@@ -16,7 +16,7 @@
       <b-col class="iframe-container">
         <iframe
           id="frameToPrint"
-          src="/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))"
+          src="/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-90d%2Cto%3Anow))"
           height="6000"
           allowfullscreen
           class="border border-dark"

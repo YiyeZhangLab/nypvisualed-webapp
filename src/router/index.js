@@ -13,15 +13,15 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
-    redirect: { name: 'yiye' }
-  },
-  {
-    path: '/yiye',
-    name: 'yiye',
+    name: 'home',
     component: Home,
     meta: {
       title: 'Visual(ED) - Dashboard'
     }
+  },
+  {
+    path: '/yiye',
+    redirect: { name: 'home' }
   },
   {
     path: '/yiye/queens',
@@ -63,8 +63,12 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  next();
 });
 
 export default router;

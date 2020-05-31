@@ -7,7 +7,7 @@
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item>
-          <router-link :to="{ name: 'yiye' }" class="brand1">COVID Dashboard</router-link>
+          <router-link :to="{ name: 'home' }" class="brand1">COVID Dashboard</router-link>
         </b-nav-item>
         <b-nav-item>
           <router-link :to="{ name: 'about' }" class="brand1">About</router-link>

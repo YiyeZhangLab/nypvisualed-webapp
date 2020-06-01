@@ -1,23 +1,47 @@
 <template>
-  <b-container>
-    <div>
-      <NavBar />
-      <router-view />
-      <Footer />
-    </div>
-  </b-container>
+  <v-app>
+    <v-app-bar app dense dark>
+      <v-toolbar-title>
+        <span class="font-weight-black">VISUAL(ED)</span>
+        <span class="ml-10">COVID-19 Dashboard</span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn v-for="link in links" :key="`${link.label}-header-link`" text rounded :to="link.url">{{
+        link.label
+      }}</v-btn>
+    </v-app-bar>
+    <v-content>
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-content>
+    <v-footer dark padless>
+      <v-row justify="center" no-gutters>
+        <v-col class="py-4 text-center white--text">
+          {{ new Date().getFullYear() }} —
+          <a href="https://www.yiyezhang.com" class="white--text">
+            <strong>Yiye Zhang Lab</strong>
+          </a>
+        </v-col>
+      </v-row>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-import Footer from '@/components/Footer.vue';
-
 export default {
   name: 'App',
+  created() {
+    document.title = 'Visual(ED)';
+  },
+  components: {},
 
-  components: {
-    NavBar,
-    Footer
-  }
+  data: () => ({
+    links: [
+      { label: 'Home', url: '/' },
+      { label: 'About', url: '/about' }
+    ]
+    //
+  })
 };
 </script>

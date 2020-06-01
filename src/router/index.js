@@ -1,47 +1,40 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Queens from '../views/Queens.vue';
-import Data from '../views/Data.vue';
-import Graph from '../views/Graph.vue';
-import About from '../views/About.vue';
-import GraphNative from '../views/GraphNative.vue';
-import CRRT from '../views/CRRT.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: Home,
+    name: 'nyp',
+    component: () => import('../views/NYP.vue'),
     meta: {
       title: 'Visual(ED) - Dashboard'
     }
   },
   {
     path: '/yiye',
-    redirect: { name: 'home' }
+    redirect: { name: 'nyp' }
   },
   {
     path: '/yiye/queens',
     name: 'queens',
-    component: Queens
+    component: () => import('../views/Queens.vue')
   },
   {
     path: '/data',
     name: 'view-data',
-    component: Data
+    component: () => import('../views/Data.vue')
   },
   {
     path: '/graph',
     name: 'graph',
-    component: Graph
+    component: () => import('../views/Graph.vue')
   },
   {
     path: '/about',
     name: 'about',
-    component: About,
+    component: () => import('../views/About.vue'),
     meta: {
       title: 'Visual(ED) - About'
     }
@@ -49,23 +42,28 @@ const routes = [
   {
     path: '/graph-native',
     name: 'graph-native',
-    component: GraphNative
+    component: () => import('../views/GraphNative.vue')
   },
   {
     path: '/crrt',
     name: 'crrt',
-    component: CRRT
+    component: () => import('../views/CRRT.vue')
   },
   {
     path: '*',
-    redirect: { name: 'about' }
+    name: 'all',
+    component: () => import('../views/About.vue'),
+    meta: {
+      title: 'Visual - About'
+    }
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 });
-
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title;
   next();

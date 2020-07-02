@@ -7,7 +7,7 @@
     <v-row>
       <v-col>
         <div class="float-right mx-10">
-          <span class="mx-10">Trend in the Last 14 Days</span>
+          <span class="mx-10">Trend in the Last 30 Days</span>
           <v-btn v-on:click="printPDF">Print Report</v-btn>
         </div>
       </v-col>
@@ -40,7 +40,7 @@ export default {
     return {
       url:
         process.env.NODE_ENV === 'production'
-          ? '/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-14d%2Cto%3Anow))'
+          ? '/k/app/kibana#/dashboard/fa8adaa0-71d8-11ea-b285-8bb2fd0522c9?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-30d%2Cto%3Anow))'
           : 'https://blank.org/',
       snackbar: false,
       timeout: 15000

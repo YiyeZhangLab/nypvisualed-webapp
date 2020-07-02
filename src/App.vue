@@ -38,7 +38,9 @@ export default {
 
   data: () => ({
     links: [
-      { label: 'Home', url: '/' },
+      { label: '30-Day', url: '/' },
+      { label: '60-Day', url: '/60days' },
+      { label: '120-Day', url: '/120days' },
       { label: 'About', url: '/about' }
     ]
     //

@@ -13,6 +13,22 @@ const routes = [
     }
   },
   {
+    path: '/60days',
+    name: 'nyp60days',
+    component: () => import('../views/NYPTwoMonth.vue'),
+    meta: {
+      title: 'Visual(ED) - Dashboard'
+    }
+  },
+  {
+    path: '/120days',
+    name: 'nyp120days',
+    component: () => import('../views/NYPFourMonth.vue'),
+    meta: {
+      title: 'Visual(ED) - Dashboard'
+    }
+  },
+  {
     path: '/yiye',
     redirect: { name: 'nyp' }
   },
